@@ -1,6 +1,6 @@
 package gradle.cucumber;
 
-import com.sun.tools.javac.util.Pair;
+import javafx.util.Pair;
 
 public class Coordenada {
 
