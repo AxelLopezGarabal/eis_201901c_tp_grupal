@@ -10,10 +10,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BombermanStepdefs {
 
+    private Tablero tablero;
+
     @Given("^un tablero de (\\d+) x (\\d+)$")
-    public void un_tablero_de_x(int arg1, int arg2) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    public void tableroVacioDeTamanio(int arg1, int arg2) {
+         tablero = new Tablero(arg1, arg2);
     }
 
     @Given("^bomberman en una coordenado valida$")
