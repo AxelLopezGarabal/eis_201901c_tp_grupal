@@ -4,7 +4,3 @@ jdk:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-
-env:
-  global:
-    - CODECOV_TOKEN="6def558d-f324-4e37-80b9-12b7be874e78"
