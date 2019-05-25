@@ -1,13 +1,34 @@
 package gradle.cucumber;
 
-import java.util.List;
+
+import gradle.cucumber.contenidos.Bomberman;
 
 public class Tablero {
-    //private List<Celda> celdas;
+    private Celda[][] celdas;
+    private Coordenada coordenadaBomberman;
 
     Tablero(int ancho, int alto) {
-        //TODO: armar lista de lista de celdas
-        //celdas = Arrays.asList(new Integer[width]);
+        this.celdas = new Celda[ancho][alto];
+        for(int i = 0; i < ancho; i++)
+            for(int j = 0; j < alto; j++)
+                this.celdas[i][j] = new Celda();
+    }
+
+    /*
+        Poner bomberman en la esquina superior izquierda
+     */
+    public void agregarBomberman(Bomberman bomberman) {
+        celdas[0][0].agregar(bomberman);
+        coordenadaBomberman = new Coordenada(0,0);
+        //return coordenadaBomberman;
+    }
+
+    /*
+        Mueve a bomberman a la derecha
+     */
+    public void moverALaDerecha(Bomberman bomberman) {
+        celdas[0][0].borrar(bomberman);
+        celdas[0][0].agregar(bomberman);
 
     }
 }

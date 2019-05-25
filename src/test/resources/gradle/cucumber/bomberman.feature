@@ -1,12 +1,12 @@
 Feature: Bomberman Feature
 
-  Scenario: bomberman se mueve a la celda izquierda que esta vacia
+  Scenario: bomberman se mueve a la celda derecha que esta vacia
     Given un tablero de 9 x 9
-#    Given bomberman en una coordenado valida
-#    When se mueve a la izquierda
+    And bomberman en una coordenada valida
+    When se mueve a la derecha
 #    Then bomberman cambio su coordenada
 							  
-#  Scenario: bomberman se mueve a la derecha y hay un enemigo
+#  Scenario: bomberman se mueve a la izquierda y hay un enemigo
 #    Given: un tablero de 9 x 9                                       
 #    And: bomberman en una coordenada valida(x , y)                
 #    And: un enemigo en una coordenada valida (x+1 , y)             
