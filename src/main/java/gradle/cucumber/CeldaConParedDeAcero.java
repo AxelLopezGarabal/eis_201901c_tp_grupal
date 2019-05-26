@@ -1,7 +1,7 @@
 package gradle.cucumber;
 
-public class CeldaConPared extends Celda {
-    public CeldaConPared(Pair coordenada) {
+public class CeldaConParedDeAcero extends Celda {
+    public CeldaConParedDeAcero(Pair coordenada) {
         super(coordenada.getA(), coordenada.getB());
     }
 
@@ -13,7 +13,6 @@ public class CeldaConPared extends Celda {
     }
 
     public void detonar(Tablero tablero) {
-        tablero.getCeldas()[this.getCoordenada().getA()][this.getCoordenada().getB()] =
-                new Celda(this.getCoordenada().getA(), this.getCoordenada().getB());
+
     }
 }
