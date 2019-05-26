@@ -1,5 +1,6 @@
 package gradle.cucumber;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -64,4 +65,5 @@ public class BombermanStepdefs {
         assertEquals(1, tablero.playerCoord().getA());
         assertEquals(1, tablero.playerCoord().getB());
     }
+
 }

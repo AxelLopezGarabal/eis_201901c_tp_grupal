@@ -56,11 +56,12 @@ public class Tablero extends Throwable {
         this.playerCoord = coordenada;
     }
 
-    public void colicionaBombermanConEnemigo() {
+    public void colisionaBombermanConEnemigo() {
         this.bomberman.morir();
     }
 
     public Bomberman getBomberman() {
         return bomberman;
     }
+
 }
