@@ -3,25 +3,23 @@ Feature: Bomberman Feature
   Scenario: bomberman se mueve a la celda derecha que esta vacia
     Given un tablero de 9 x 9
     And bomberman en una coordenada valida
-    When se mueve a la derecha
-#    Then bomberman cambio su coordenada
+    When se mueve a la izquierda
+    Then bomberman cambio su coordenada
 							  
-#  Scenario: bomberman se mueve a la izquierda y hay un enemigo
-#    Given: un tablero de 9 x 9                                       
-#    And: bomberman en una coordenada valida(x , y)                
-#    And: un enemigo en una coordenada valida (x+1 , y)             
-#    When: bomberman se mueve a la derecha                          
-#    Then: bomberman muere                                          
-#  																	  
-#  Scenario: bomberman se intenta mover al norte y hay una pared      
-#    When: un tablero de 9 x 9
-#    And: un bomberman en una coordenada valida(x , y)
-#    And: una pared al norte de la posicion de bomberman(x, y+1)   
-#    When: bomberman se mueve al norte                              
-#    Then:  bomberman no cambia su coordenada                        
-#
-#    
-#    
+  Scenario: bomberman se mueve a la derecha y hay un enemigo
+    Given un tablero de 9 x 9
+    And bomberman en una coordenada valida
+    And un enemigo en una coordenada valida
+    When bomberman se mueve a la derecha
+    Then bomberman muere
+
+  Scenario: bomberman se intenta mover al norte y hay una pared
+    When un tablero de 9 x 9
+    And bomberman en una coordenada valida
+    And una pared al norte de la posicion de bomberman
+    When bomberman se mueve al norte
+    Then  bomberman no cambia su coordenada
+
 #  Scenario: bomberman suelta una bomba y hay pared de melamina a 3 casilleros
 #    Given: un bomberman que suelta una bomba en la posicion actual
 #    When: luego de unos ticks

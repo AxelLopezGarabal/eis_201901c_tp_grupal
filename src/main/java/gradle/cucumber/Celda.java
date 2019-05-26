@@ -1,32 +1,21 @@
 package gradle.cucumber;
 
-import gradle.cucumber.contenidos.Bomberman;
-import gradle.cucumber.contenidos.Contenido;
-import gradle.cucumber.contenidos.ContenidoVacio;
-import gradle.cucumber.contenidos.Personaje;
-
 public class Celda {
-    /*
-      Por defecto, cuando una celda se crea se hace sin contenido
-     */
-    private Contenido contenido;
+    private Pair coordenada;
 
-    public Celda() {
-        this.contenido = new ContenidoVacio();
+    public Celda(int x, int y){
+        this.coordenada = new Pair(x, y);
     }
 
-    public Celda(Contenido contenido) {
-        this.contenido = contenido;
+    public Pair getCoordenada() {
+        return this.coordenada;
     }
 
-    /*
-        Se pueden agregar personajes o paredes
-     */
-    public void agregar(Personaje p) {
-        contenido = p;
+    public void colocarBomberman(Tablero tablero, Pair coordenada) {
+        tablero.setPlayerCoord(coordenada);
     }
 
-    public void borrar(Bomberman bomberman) {
-        contenido = new ContenidoVacio();
+    public boolean esCeldaEnemiga() {
+        return false;
     }
 }
