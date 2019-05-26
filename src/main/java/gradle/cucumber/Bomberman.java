@@ -1,13 +1,17 @@
 package gradle.cucumber;
 
 public class Bomberman {
-    private boolean estamuerto = false;
+    private boolean estamuerto = true;
 
-    public void morir() {
-        this.estamuerto = true;
+    public Bomberman(){
+
     }
 
-    public boolean estamuerto() {
-        return estamuerto;
+    public void morir() {
+        this.estamuerto = !this.estamuerto;
+    }
+
+    public boolean estaVivo() {
+        return this.estamuerto;
     }
 }

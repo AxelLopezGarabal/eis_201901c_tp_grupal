@@ -29,8 +29,7 @@ public class Tablero extends Throwable {
 
     public void moverALaIzquierdaBomberman() {
         Pair coordenada = Izquierda.mover(this.playerCoord);
-        Celda cell = celdas[coordenada.getA()][coordenada.getB()];
-        this.playerCoord = cell.getCoordenada();
+        celdas[coordenada.getA()][coordenada.getB()].colocarBomberman(this, coordenada);
     }
 
     public Pair playerCoord() {
@@ -38,13 +37,32 @@ public class Tablero extends Throwable {
     }
 
     public void ubicarEnemigoEnCelda(Pair coordenada) {
-        Celda cell = celdas[coordenada.getA()][coordenada.getB()];
-        cell.ubicarEnemigo();
+        celdas[coordenada.getA()][coordenada.getB()] =  new CeldaConEnemigo(coordenada);
     }
 
     public void moverALaDerechaBomberman() {
         Pair coordenada = Derecha.mover(this.playerCoord);
-        Celda cell = celdas[coordenada.getA()][coordenada.getB()];
-        this.playerCoord = cell.getCoordenada();
+        celdas[coordenada.getA()][coordenada.getB()].colocarBomberman(this, coordenada);
+    }
+
+    public void ubicarParedEnCelda(Pair coordenada) {
+        celdas[coordenada.getA()][coordenada.getB()] = new CeldaConPared(coordenada);
+    }
+
+    public void moverAlNorteBomberman() {
+        Pair coordenada = Norte.mover(this.playerCoord);
+        celdas[coordenada.getA()][coordenada.getB()].colocarBomberman(this, coordenada);
+    }
+
+    public void setPlayerCoord(Pair coordenada) {
+        this.playerCoord = coordenada;
+    }
+
+    public void colicionaBombermanConEnemigo() {
+        this.bomberman.morir();
+    }
+
+    public Bomberman getBomberman() {
+        return bomberman;
     }
 }
