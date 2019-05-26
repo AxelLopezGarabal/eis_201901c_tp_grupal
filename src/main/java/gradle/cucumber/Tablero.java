@@ -6,6 +6,7 @@ public class Tablero extends Throwable {
     private Pair playerCoord;
     private Bomberman bomberman;
     private Celda[][] celdas;
+    private Celda celdaConBomba;
 
     public Tablero(int arg1, int arg2) {
         this.celdas = new Celda[arg1][arg2];
@@ -64,4 +65,71 @@ public class Tablero extends Throwable {
         return bomberman;
     }
 
+    public void bombermanSueltaBomba() {
+        celdas[this.playerCoord.getA()][this.playerCoord.getB()] = new CeldaConBomba(this.playerCoord);
+        this.celdaConBomba = celdas[this.playerCoord.getA()][this.playerCoord.getB()];
+    }
+
+    public void explotarBomba() {
+        this.celdaConBomba.explotar(this);
+    }
+
+    public void explocion() {
+        this.detonar3AlNorte();
+        this.detonar3AlSur();
+        this.detonar3ALaIzquierda();
+        this.detonar3ALaDerecha();
+    }
+
+    private void detonar3ALaDerecha() {
+        Pair coord = Derecha.mover(this.celdaConBomba.getCoordenada());
+        celdas[coord.getA()][coord.getB()].detonar(this);
+
+        coord = Derecha.mover(this.celdaConBomba.getCoordenada());
+        celdas[coord.getA()][coord.getB()].detonar(this);
+
+        coord = Derecha.mover(this.celdaConBomba.getCoordenada());
+        celdas[coord.getA()][coord.getB()].detonar(this);
+    }
+
+    private void detonar3ALaIzquierda() {
+        Pair coord = Izquierda.mover(this.celdaConBomba.getCoordenada());
+        celdas[coord.getA()][coord.getB()].detonar(this);
+
+        coord = Izquierda.mover(this.celdaConBomba.getCoordenada());
+        celdas[coord.getA()][coord.getB()].detonar(this);
+
+        coord = Izquierda.mover(this.celdaConBomba.getCoordenada());
+        celdas[coord.getA()][coord.getB()].detonar(this);
+    }
+
+    private void detonar3AlSur() {
+        Pair coord = Sur.mover(this.celdaConBomba.getCoordenada());
+        celdas[coord.getA()][coord.getB()].detonar(this);
+
+        coord = Sur.mover(this.celdaConBomba.getCoordenada());
+        celdas[coord.getA()][coord.getB()].detonar(this);
+
+        coord = Sur.mover(this.celdaConBomba.getCoordenada());
+        celdas[coord.getA()][coord.getB()].detonar(this);
+    }
+
+    private void detonar3AlNorte() {
+        Pair coord = Norte.mover(this.celdaConBomba.getCoordenada());
+        celdas[coord.getA()][coord.getB()].detonar(this);
+
+        coord = Norte.mover(coord);
+        celdas[coord.getA()][coord.getB()].detonar(this);
+
+        coord = Norte.mover(coord);
+        celdas[coord.getA()][coord.getB()].detonar(this);
+    }
+
+    public Celda[][] getCeldas() {
+        return this.celdas;
+    }
+
+    public void ubicarParedDeAceroEnCelda(Pair coordenada) {
+        celdas[coordenada.getA()][coordenada.getB()] = new CeldaConParedDeAcero(coordenada);
+    }
 }

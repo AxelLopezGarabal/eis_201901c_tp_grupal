@@ -15,7 +15,10 @@ public class Celda {
         tablero.setPlayerCoord(coordenada);
     }
 
-    public boolean esCeldaEnemiga() {
-        return false;
+    public void explotar(Tablero tablero) {
+
+    }
+
+    public void detonar(Tablero tablero) {
     }
 }

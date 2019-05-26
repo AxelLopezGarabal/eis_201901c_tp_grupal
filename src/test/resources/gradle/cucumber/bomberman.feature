@@ -1,6 +1,8 @@
 Feature: Bomberman Feature
 
-  Scenario: bomberman se mueve a la celda derecha que esta vacia
+#casos de movimiento
+
+  Scenario: bomberman se mueve a la celda izquierda que esta vacia
     Given un tablero de 9 x 9
     And bomberman en una coordenada valida
     When se mueve a la izquierda
@@ -14,31 +16,37 @@ Feature: Bomberman Feature
     Then bomberman muere
 
   Scenario: bomberman se intenta mover al norte y hay una pared
-    When un tablero de 9 x 9
+    Given un tablero de 9 x 9
     And bomberman en una coordenada valida
     And una pared al norte de la posicion de bomberman
     When bomberman se mueve al norte
     Then  bomberman no cambia su coordenada
 
-#  Scenario: bomberman suelta una bomba y hay pared de melamina a 3 casilleros
-#    When un tablero de 9 x 9
-#    And bomberman en una coordenada valida
-#    And un bomberman que suelta una bomba en la posicion actual
-#    When luego de unos ticks
-#    Then  la bomba explota y rompe la pared
-#
-#  Scenario: bomberman suelta una bomba y hay un enemigo cerca
-#    Given un bomberman que suelta una bomba en la posicion actual
-#    When luego de unos ticks
-#    Then la bomba explota y mata al enemigo
-#
-#  Scenario: bomberman suelta una bomba y hay pared
-#    Given un bomberman que suelta una bomba en la posicion actual
-#    When luego de unos ticks
-#    Then la bomba explota y no pasa nada
-#
-#    
-#    
+#casos de bombas
+
+  Scenario: bomberman suelta una bomba y hay pared de melamina a 3 casilleros
+    Given un tablero de 9 x 9
+    And bomberman en una coordenada valida
+    And un bomberman que suelta una bomba en la posicion actual
+    When luego de unos ticks la bomba explota
+    Then rompe la pared
+
+  Scenario: bomberman suelta una bomba y hay un enemigo cerca
+    Given un tablero de 9 x 9
+    And bomberman en una coordenada valida
+    And un bomberman que suelta una bomba en la posicion actual
+    And un enemigo al norte de la posicion del bomberman
+    When luego de unos ticks la bomba explota
+    Then la bomba mato al enemigo
+
+  Scenario: bomberman suelta una bomba y hay pared de acero
+    Given un tablero de 9 x 9
+    And bomberman en una coordenada valida
+    And una pared de acero al este de la posicion de bomberman
+    And un bomberman que suelta una bomba en la posicion actual
+    When luego de unos ticks la bomba explota
+    Then la pared de acero no se rompio
+
 #  Scenario: bombeman suelta una bomba y esta alcanza a bagulaa
 #    Given un bomberman que suelta una bomba en la posicion actual
 #    Given  la bomba alcanza a bagulaa
