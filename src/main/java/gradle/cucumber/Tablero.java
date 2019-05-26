@@ -8,6 +8,7 @@ public class Tablero extends Throwable {
     private Celda[][] celdas;
     private Celda celdaConBomba;
 
+
     public Tablero(int arg1, int arg2) {
         this.celdas = new Celda[arg1][arg2];
         this.crearTodasLasCeldas(arg1, arg2);
@@ -74,7 +75,7 @@ public class Tablero extends Throwable {
         this.celdaConBomba.explotar(this);
     }
 
-    public void explocion() {
+    public void explosion() {
         this.detonar3AlNorte();
         this.detonar3AlSur();
         this.detonar3ALaIzquierda();
@@ -131,5 +132,21 @@ public class Tablero extends Throwable {
 
     public void ubicarParedDeAceroEnCelda(Pair coordenada) {
         celdas[coordenada.getA()][coordenada.getB()] = new CeldaConParedDeAcero(coordenada);
+    }
+
+    /*
+        enemigos
+     */
+
+    public void agregarPoderaBomberman() {
+        this.bomberman.agregarPoderLanzarBombas();
+    }
+
+    public void ubicarPoderEnCelda(Pair coordenada) {
+        celdas[coordenada.getA()][coordenada.getB()] = new CeldaConPoder(coordenada);
+    }
+
+    public void ubicarBagulaaEnCelda(Pair coordenada) {
+        celdas[coordenada.getA()][coordenada.getB()] =  new CeldaConBagulaa(coordenada);
     }
 }

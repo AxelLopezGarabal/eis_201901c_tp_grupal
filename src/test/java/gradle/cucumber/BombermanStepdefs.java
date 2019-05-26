@@ -94,7 +94,6 @@ public class BombermanStepdefs {
 
     @Then("^la bomba mato al enemigo")
     public void la_bomba_mato_al_enemigo(){
-        tablero.moverAlNorteBomberman();
         assertTrue(this.bomberman.estaVivo());
     }
 
@@ -104,4 +103,19 @@ public class BombermanStepdefs {
         assertEquals(1, tablero.playerCoord().getA());
         assertEquals(1, tablero.playerCoord().getB());
     }
+
+    /*
+        tests enemigos
+     */
+    @Given("^bagulaa al norte de la posicion del bomberman")
+    public void bagulaa_al_norte_de_la_posicion_del_bomberman() {
+        tablero.ubicarBagulaaEnCelda(new Pair(1,2));
+    }
+
+    @Then("^bagulaa suelta un poder$")
+    public void bagulaa_suelta_un_poder() {
+        tablero.moverAlNorteBomberman();
+        assertTrue(this.bomberman.tienePoderLanzarBombas());
+    }
+
 }

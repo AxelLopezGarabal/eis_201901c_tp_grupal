@@ -10,7 +10,7 @@ public class CeldaConBomba extends Celda {
     }
 
     public void explotar(Tablero tablero) {
-        tablero.explocion();
+        tablero.explosion();
     }
 
     public void detonar(Tablero tablero) {

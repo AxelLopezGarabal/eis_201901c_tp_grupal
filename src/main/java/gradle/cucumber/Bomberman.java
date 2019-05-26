@@ -2,6 +2,7 @@ package gradle.cucumber;
 
 public class Bomberman {
     private boolean estaVivo = true;
+    private boolean tienePoderLanzarBombas = false;
 
     public Bomberman(){
 
@@ -13,5 +14,13 @@ public class Bomberman {
 
     public boolean estaVivo() {
         return this.estaVivo;
+    }
+
+    public boolean tienePoderLanzarBombas() {
+        return this.tienePoderLanzarBombas;
+    }
+
+    public void agregarPoderLanzarBombas() {
+        this.tienePoderLanzarBombas = true;
     }
 }
