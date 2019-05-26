@@ -138,15 +138,38 @@ public class Tablero extends Throwable {
         enemigos
      */
 
+    public void ubicarBagulaaEnCelda(Pair coordenada) {
+        celdas[coordenada.getA()][coordenada.getB()] =  new CeldaConBagulaa(coordenada);
+    }
+
+    public void ubicarProtoMaxJrEnCelda(Pair coordenada) {
+        celdas[coordenada.getA()][coordenada.getB()] =  new CeldaConProtoMaxJr(coordenada);
+    }
+
+    public void ubicarProtoMaxunitsEnCelda(Pair coordenada) {
+        celdas[coordenada.getA()][coordenada.getB()] =  new CeldaConProtoMaxUnits(coordenada);
+    }
+
+    public void moverAlSurBomberman() {
+        Pair coordenada = Sur.mover(this.playerCoord);
+        celdas[coordenada.getA()][coordenada.getB()].colocarBomberman(this, coordenada);
+    }
+
+
+    /*
+        poderes
+     */
     public void agregarPoderaBomberman() {
         this.bomberman.agregarPoderLanzarBombas();
     }
 
-    public void ubicarPoderEnCelda(Pair coordenada) {
-        celdas[coordenada.getA()][coordenada.getB()] = new CeldaConPoder(coordenada);
+    public void agregarPoderSaltarParedesaBomberman() {
+        this.bomberman.agregarPoderSaltarParedes();
     }
 
-    public void ubicarBagulaaEnCelda(Pair coordenada) {
-        celdas[coordenada.getA()][coordenada.getB()] =  new CeldaConBagulaa(coordenada);
+
+    public void agregarPoderDoble() {
+        this.bomberman.agregarPoderSaltarParedes();
+        this.bomberman.agregarPoderLanzarVariasBombasAlMismoTiempo();
     }
 }

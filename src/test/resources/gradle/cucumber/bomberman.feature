@@ -53,39 +53,37 @@ Feature: Bomberman Feature
     Then la bomba mato al enemigo
     And bagulaa suelta un poder
 
-
+# TODO: esto deberia estar en el test de arriba
 #  Scenario: bomberman recoge el poder tirado por bagula
 #    Given un bomberman que va a recoger el poder tirado por bagulaa
 #    When agarra el poder
 #    Then bomberman puede lanzar la bomba recorriendo "n" casilleros y la detona luego de "m" ticks
-#
-#    
-#    
-#  Scenario: bomberman suelta una bomba y esta alcanza a Proto max jr
-#    Given un bomberman que suelta una bomba en la posicion actual
-#    Given la bomba alcanza a Proto max jr
-#    When Proto max jr muere
-#    Then suelta un poder
-#
+
+  Scenario: bomberman suelta una bomba y esta alcanza a Proto max jr
+    Given un bomberman que suelta una bomba en la posicion actual
+    And proto max jr al sur de la posicion del bomberman
+    When luego de unos ticks la bomba explota
+    And bomberman se mueve al sur
+    Then la bomba mato al enemigo
+    And proto max jr suelta un poder
+
+# TODO: esto deberia estar en el test de arriba
 #  Scenario: bomberman recoge el poder tirado por Proto max jr
 #    Given un bomberman que va a recoger el poder tirado por Proto max jr
 #    When agarra el poder
 #    Then bomberman puede saltar cualquier pared
-#
-#    
-#    
-#  Scenario: bomberman suelta una bomba y esta alcanza a Proto max units
-#    Given un bomberman que suelta una bomba en la posicion actual
-#    Given la bomba alcanza a Proto max units
-#    When Proto max units muere
-#    Then suelta un poder
-#
+
+  Scenario: bomberman suelta una bomba y esta alcanza a Proto max units
+    Given un bomberman que suelta una bomba en la posicion actual
+    And proto max units al sur de la posicion del bomberman
+    When luego de unos ticks la bomba explota
+    And bomberman se mueve al sur
+    Then la bomba mato al enemigo
+    And proto max units suelta un poder
+
+# TODO: esto deberia estar en el test de arriba
 #  Scenario: bomberman recoge el poder tirado por Proto max units
 #    Given un bomberman que va a recoger el poder tirado por Proto max units
 #    When agarra el poder
 #    Then bomberman puede lanzar varias bombas
-#
-#  Scenario: bomberman recoge el poder tirado por Proto max units
-#    Given un bomberman que va recoger el poder tirado por Proto max units
-#    When agarra el poder
 #    Then bomberman puede saltar paredes

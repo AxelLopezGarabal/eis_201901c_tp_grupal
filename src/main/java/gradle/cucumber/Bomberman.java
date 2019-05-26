@@ -3,6 +3,9 @@ package gradle.cucumber;
 public class Bomberman {
     private boolean estaVivo = true;
     private boolean tienePoderLanzarBombas = false;
+    private boolean tienePoderSaltarParedes = false;
+    private boolean tienePoderLanzarVariasBombasAlMismoTiempo = false;
+
 
     public Bomberman(){
 
@@ -22,5 +25,22 @@ public class Bomberman {
 
     public void agregarPoderLanzarBombas() {
         this.tienePoderLanzarBombas = true;
+    }
+
+
+    public boolean tienePoderSaltarParedes() {
+        return this.tienePoderSaltarParedes;
+    }
+
+    public void agregarPoderSaltarParedes() {
+        this.tienePoderSaltarParedes = true;
+    }
+
+    public boolean tienePoderLanzarVariasBombasAlMismoTiempo() {
+        return this.tienePoderLanzarVariasBombasAlMismoTiempo;
+    }
+
+    public void agregarPoderLanzarVariasBombasAlMismoTiempo() {
+        this.tienePoderLanzarVariasBombasAlMismoTiempo = true;
     }
 }
