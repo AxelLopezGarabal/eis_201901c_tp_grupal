@@ -15,10 +15,10 @@ Ejercitar la escritura de código en ambientes colaborativos utilizando una meto
 
 Nro | Nombre | Legajo | Mail
 ----|--------|--------|------
-1   | Leandro Arroyo |        |
+1   | Leandro Arroyo |  22006      |leandroarroyo77@gmail.com
 2   | Juan Hualampa | 23707 | juan.hualampa@alu.unq.edu.ar
 3   | Axel Lopez Garabal | 28940 | axel.lopez.garabal@gmail.com
-4   | Fernando Ripoli |        |
+4   | Fernando Ripoli |  28623      | fernando.ripoli@hotmail.com
     
 ### Entrega
 
