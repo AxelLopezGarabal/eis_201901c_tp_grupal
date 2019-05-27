@@ -8,6 +8,7 @@ public class Tablero extends Throwable {
     private Celda[][] celdas;
     private Celda celdaConBomba;
 
+
     public Tablero(int arg1, int arg2) {
         this.celdas = new Celda[arg1][arg2];
         this.crearTodasLasCeldas(arg1, arg2);
@@ -57,7 +58,7 @@ public class Tablero extends Throwable {
         this.playerCoord = coordenada;
     }
 
-    public void colicionaBombermanConEnemigo() {
+    public void colisionaBombermanConEnemigo() {
         this.bomberman.morir();
     }
 
@@ -74,7 +75,7 @@ public class Tablero extends Throwable {
         this.celdaConBomba.explotar(this);
     }
 
-    public void explocion() {
+    public void explosion() {
         this.detonar3AlNorte();
         this.detonar3AlSur();
         this.detonar3ALaIzquierda();
@@ -131,5 +132,44 @@ public class Tablero extends Throwable {
 
     public void ubicarParedDeAceroEnCelda(Pair coordenada) {
         celdas[coordenada.getA()][coordenada.getB()] = new CeldaConParedDeAcero(coordenada);
+    }
+
+    /*
+        enemigos
+     */
+
+    public void ubicarBagulaaEnCelda(Pair coordenada) {
+        celdas[coordenada.getA()][coordenada.getB()] =  new CeldaConBagulaa(coordenada);
+    }
+
+    public void ubicarProtoMaxJrEnCelda(Pair coordenada) {
+        celdas[coordenada.getA()][coordenada.getB()] =  new CeldaConProtoMaxJr(coordenada);
+    }
+
+    public void ubicarProtoMaxunitsEnCelda(Pair coordenada) {
+        celdas[coordenada.getA()][coordenada.getB()] =  new CeldaConProtoMaxUnits(coordenada);
+    }
+
+    public void moverAlSurBomberman() {
+        Pair coordenada = Sur.mover(this.playerCoord);
+        celdas[coordenada.getA()][coordenada.getB()].colocarBomberman(this, coordenada);
+    }
+
+
+    /*
+        poderes
+     */
+    public void agregarPoderaBomberman() {
+        this.bomberman.agregarPoderLanzarBombas();
+    }
+
+    public void agregarPoderSaltarParedesaBomberman() {
+        this.bomberman.agregarPoderSaltarParedes();
+    }
+
+
+    public void agregarPoderDoble() {
+        this.bomberman.agregarPoderSaltarParedes();
+        this.bomberman.agregarPoderLanzarVariasBombasAlMismoTiempo();
     }
 }

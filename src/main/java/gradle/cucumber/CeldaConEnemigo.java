@@ -6,7 +6,7 @@ public class CeldaConEnemigo extends Celda {
     }
 
     public void colocarBomberman(Tablero tablero, Pair coordenada) {
-        tablero.colicionaBombermanConEnemigo();
+        tablero.colisionaBombermanConEnemigo();
         tablero.setPlayerCoord(coordenada);
     }
 

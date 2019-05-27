@@ -1,5 +1,6 @@
 package gradle.cucumber;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -93,7 +94,6 @@ public class BombermanStepdefs {
 
     @Then("^la bomba mato al enemigo")
     public void la_bomba_mato_al_enemigo(){
-        tablero.moverAlNorteBomberman();
         assertTrue(this.bomberman.estaVivo());
     }
 
@@ -103,4 +103,46 @@ public class BombermanStepdefs {
         assertEquals(1, tablero.playerCoord().getA());
         assertEquals(1, tablero.playerCoord().getB());
     }
+
+    /*
+        tests enemigos
+     */
+    @Given("^bagulaa al norte de la posicion del bomberman")
+    public void bagulaa_al_norte_de_la_posicion_del_bomberman() {
+        tablero.ubicarBagulaaEnCelda(new Pair(1,2));
+    }
+
+    @Then("^bagulaa suelta un poder$")
+    public void bagulaa_suelta_un_poder() {
+        assertTrue(this.bomberman.tienePoderLanzarBombas());
+    }
+
+
+    @Given("^proto max jr al sur de la posicion del bomberman$")
+    public void proto_max_jr_al_sur_de_la_posicion_del_bomberman() {
+        tablero.ubicarProtoMaxJrEnCelda(new Pair(1,0));
+    }
+
+    @When("^bomberman se mueve al sur$")
+    public void bomberman_se_mueve_al_sur() {
+        tablero.moverAlSurBomberman();
+    }
+
+    @Then("^proto max jr suelta un poder$")
+    public void proto_max_jr_suelta_un_poder() {
+        assertTrue(this.bomberman.tienePoderSaltarParedes());
+    }
+
+
+    @Given("^proto max units al sur de la posicion del bomberman$")
+    public void proto_max_units_al_sur_de_la_posicion_del_bomberman() {
+        tablero.ubicarProtoMaxunitsEnCelda(new Pair(1,0));
+    }
+
+    @Then("^proto max units suelta un poder$")
+    public void proto_max_units_suelta_un_poder() {
+        assertTrue(this.bomberman.tienePoderSaltarParedes());
+        assertTrue(this.bomberman.tienePoderLanzarVariasBombasAlMismoTiempo());
+    }
+
 }
