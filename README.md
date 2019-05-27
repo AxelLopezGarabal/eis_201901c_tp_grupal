@@ -17,7 +17,7 @@ Nro | Nombre | Legajo | Mail
 ----|--------|--------|------
 1   | Leandro Arroyo |        |
 2   | Juan Hualampa | 23707 | juan.hualampa@alu.unq.edu.ar
-3   | Axel Lopez Garabal |        |
+3   | Axel Lopez Garabal | 28940 | axel.lopez.garabal@gmail.com
 4   | Fernando Ripoli |        |
     
 ### Entrega
