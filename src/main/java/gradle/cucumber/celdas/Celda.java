@@ -1,4 +1,7 @@
-package gradle.cucumber;
+package gradle.cucumber.celdas;
+
+import gradle.cucumber.Pair;
+import gradle.cucumber.Tablero;
 
 public class Celda {
     private Pair coordenada;

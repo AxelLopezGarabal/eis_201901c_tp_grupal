@@ -1,4 +1,6 @@
-package gradle.cucumber;
+package gradle.cucumber.direcciones;
+
+import gradle.cucumber.Pair;
 
 public class Norte {
     public static Pair mover(Pair coordenada) {

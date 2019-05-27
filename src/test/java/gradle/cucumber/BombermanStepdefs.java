@@ -1,6 +1,7 @@
 package gradle.cucumber;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -116,6 +117,30 @@ public class BombermanStepdefs {
     public void bagulaa_suelta_un_poder() {
         assertTrue(this.bomberman.tienePoderLanzarBombas());
     }
+
+
+    @Given("^un bomberman con poder lanza bombas$")
+    public void un_bomberman_con_poder_lanza_bombas() {
+        bomberman.agregarPoderLanzarBombas();
+    }
+
+    @Given("^bagulaa a (\\d+) casilleros al este$")
+    public void bagulaa_a_casilleros_al_este(int arg1) {
+        tablero.ubicarBagulaaEnCelda(new Pair(1,arg1));
+    }
+
+    @Then("^bomberman lanza la bomba recorriendo (\\d+) casilleros y la detona luego de (\\d+) ticks$")
+    public void bomberman_lanza_la_bomba_recorriendo_casilleros_y_la_detona_luego_de_ticks(int arg1, int arg2) {
+        this.tablero.tirarBombaANCasillerosYExplotarAMTicks(arg1, arg2);
+    }
+
+    @Then("^bomberman se mueve (\\d+) casilleros al este$")
+    public void bomberman_se_mueve_casilleros_al_este(int arg1) {
+        for(int n = 0; n < arg1; n++){
+            tablero.moverALaDerechaBomberman();
+        }
+    }
+
 
 
     @Given("^proto max jr al sur de la posicion del bomberman$")

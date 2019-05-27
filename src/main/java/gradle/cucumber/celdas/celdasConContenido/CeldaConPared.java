@@ -1,16 +1,19 @@
-package gradle.cucumber;
+package gradle.cucumber.celdas.celdasConContenido;
 
-public class CeldaConBomba extends Celda {
-    public CeldaConBomba(Pair coord) {
-        super(coord.getA(), coord.getB());
+import gradle.cucumber.Pair;
+import gradle.cucumber.Tablero;
+import gradle.cucumber.celdas.Celda;
+
+public class CeldaConPared extends Celda {
+    public CeldaConPared(Pair coordenada) {
+        super(coordenada.getA(), coordenada.getB());
     }
 
     public void colocarBomberman(Tablero tablero, Pair coordenada) {
-
+        tablero.setPlayerCoord(tablero.playerCoord());
     }
 
     public void explotar(Tablero tablero) {
-        tablero.explosion();
     }
 
     public void detonar(Tablero tablero) {

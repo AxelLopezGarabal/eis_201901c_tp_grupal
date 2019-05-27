@@ -45,6 +45,7 @@ Feature: Bomberman Feature
 
 #casos de enemigos y poderes
 
+  #Bagulaa
   Scenario: bomberman suelta una bomba y esta alcanza a bagulaa
     Given un bomberman que suelta una bomba en la posicion actual
     And bagulaa al norte de la posicion del bomberman
@@ -52,13 +53,15 @@ Feature: Bomberman Feature
     And bomberman se mueve al norte
     Then la bomba mato al enemigo
     And bagulaa suelta un poder
+    
+  Scenario: bomberman suelta una bomba y esta alcanza a bagulaa, luego lanza la bomba con el poder obtenido
+    Given un bomberman con poder lanza bombas
+    And bagulaa a 7 casilleros al este
+    Then bomberman lanza la bomba recorriendo 5 casilleros y la detona luego de 3 ticks
+    And bomberman se mueve 7 casilleros al este
+    And la bomba mato al enemigo
 
-# TODO: esto deberia estar en el test de arriba
-#  Scenario: bomberman recoge el poder tirado por bagula
-#    Given un bomberman que va a recoger el poder tirado por bagulaa
-#    When agarra el poder
-#    Then bomberman puede lanzar la bomba recorriendo "n" casilleros y la detona luego de "m" ticks
-
+  #Proto Max Jr
   Scenario: bomberman suelta una bomba y esta alcanza a Proto max jr
     Given un bomberman que suelta una bomba en la posicion actual
     And proto max jr al sur de la posicion del bomberman

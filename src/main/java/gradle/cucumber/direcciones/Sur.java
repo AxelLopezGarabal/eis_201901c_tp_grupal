@@ -1,4 +1,6 @@
-package gradle.cucumber;
+package gradle.cucumber.direcciones;
+
+import gradle.cucumber.Pair;
 
 public class Sur {
     public static Pair mover(Pair coordenada) {

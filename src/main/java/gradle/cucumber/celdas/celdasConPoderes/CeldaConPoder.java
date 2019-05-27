@@ -1,4 +1,8 @@
-package gradle.cucumber;
+package gradle.cucumber.celdas.celdasConPoderes;
+
+import gradle.cucumber.Pair;
+import gradle.cucumber.Tablero;
+import gradle.cucumber.celdas.Celda;
 
 public class CeldaConPoder extends Celda {
 
