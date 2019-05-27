@@ -1,6 +1,7 @@
 package gradle.cucumber;
 
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -68,7 +69,7 @@ public class BombermanStepdefs {
         tablero.explotarBomba();
     }
 
-    @Then("^bomberman cambio su coordenada")
+    @Then("^bomberman cambio su coordenada$")
     public void bomberman_cambio_su_coordenada() {
         assertEquals(0, tablero.playerCoord().getA());
         assertEquals(1, tablero.playerCoord().getB());
@@ -118,6 +119,30 @@ public class BombermanStepdefs {
     }
 
 
+    @Given("^un bomberman con poder lanza bombas$")
+    public void un_bomberman_con_poder_lanza_bombas() {
+        bomberman.agregarPoderLanzarBombas();
+    }
+
+    @Given("^bagulaa a (\\d+) casilleros al este$")
+    public void bagulaa_a_casilleros_al_este(int arg1) {
+        tablero.ubicarBagulaaEnCelda(new Pair(1,arg1));
+    }
+
+    @Then("^bomberman lanza la bomba recorriendo (\\d+) casilleros y la detona luego de (\\d+) ticks$")
+    public void bomberman_lanza_la_bomba_recorriendo_casilleros_y_la_detona_luego_de_ticks(int arg1, int arg2) {
+        this.tablero.tirarBombaANCasillerosYExplotarAMTicks(arg1, arg2);
+    }
+
+    @Then("^bomberman se mueve (\\d+) casilleros al este$")
+    public void bomberman_se_mueve_casilleros_al_este(int arg1) {
+        for(int n = 0; n < arg1; n++){
+            tablero.moverALaDerechaBomberman();
+        }
+    }
+
+
+
     @Given("^proto max jr al sur de la posicion del bomberman$")
     public void proto_max_jr_al_sur_de_la_posicion_del_bomberman() {
         tablero.ubicarProtoMaxJrEnCelda(new Pair(1,0));
@@ -143,6 +168,17 @@ public class BombermanStepdefs {
     public void proto_max_units_suelta_un_poder() {
         assertTrue(this.bomberman.tienePoderSaltarParedes());
         assertTrue(this.bomberman.tienePoderLanzarVariasBombasAlMismoTiempo());
+    }
+
+    @Given("^un bomberman con poder saltar paredes$")
+    public void un_bomberman_con_poder_saltar_paredes() {
+        bomberman.agregarPoderSaltarParedes();
+    }
+
+    @Then("^bomberman cambio su coordenada al este$")
+    public void bomberman_cambio_su_coordenada_al_este() {
+        assertEquals(3, tablero.playerCoord().getA());
+        assertEquals(1, tablero.playerCoord().getB());
     }
 
 }

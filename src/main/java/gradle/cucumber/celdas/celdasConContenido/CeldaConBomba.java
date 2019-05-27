@@ -1,4 +1,8 @@
-package gradle.cucumber;
+package gradle.cucumber.celdas.celdasConContenido;
+
+import gradle.cucumber.Pair;
+import gradle.cucumber.Tablero;
+import gradle.cucumber.celdas.Celda;
 
 public class CeldaConBomba extends Celda {
     public CeldaConBomba(Pair coord) {

@@ -1,4 +1,8 @@
-package gradle.cucumber;
+package gradle.cucumber.celdas.celdasConEnemigos;
+
+import gradle.cucumber.Pair;
+import gradle.cucumber.Tablero;
+import gradle.cucumber.celdas.celdasConPoderes.CeldaConPoderSaltarParedes;
 
 public class CeldaConProtoMaxJr extends CeldaConEnemigo {
 

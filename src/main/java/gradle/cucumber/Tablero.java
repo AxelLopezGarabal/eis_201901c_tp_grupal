@@ -1,12 +1,28 @@
 package gradle.cucumber;
 
 
+import gradle.cucumber.celdas.Celda;
+import gradle.cucumber.celdas.celdasConContenido.CeldaConBomba;
+import gradle.cucumber.celdas.celdasConContenido.CeldaConPared;
+import gradle.cucumber.celdas.celdasConContenido.CeldaConParedDeAcero;
+import gradle.cucumber.celdas.celdasConEnemigos.CeldaConBagulaa;
+import gradle.cucumber.celdas.celdasConEnemigos.CeldaConEnemigo;
+import gradle.cucumber.celdas.celdasConEnemigos.CeldaConProtoMaxJr;
+import gradle.cucumber.celdas.celdasConEnemigos.CeldaConProtoMaxUnits;
+import gradle.cucumber.direcciones.Derecha;
+import gradle.cucumber.direcciones.Izquierda;
+import gradle.cucumber.direcciones.Norte;
+import gradle.cucumber.direcciones.Sur;
+
 public class Tablero extends Throwable {
 
     private Pair playerCoord;
     private Bomberman bomberman;
     private Celda[][] celdas;
     private Celda celdaConBomba;
+
+    //TODO: posicion auxiliar, para ubicar objetos en el tablero
+    private Pair cursorCoord;
 
 
     public Tablero(int arg1, int arg2) {
@@ -56,6 +72,10 @@ public class Tablero extends Throwable {
 
     public void setPlayerCoord(Pair coordenada) {
         this.playerCoord = coordenada;
+    }
+
+    public void moverBombermanEnTablero(Pair coordenada) {
+        bomberman.moverseEnTablero(this, coordenada);
     }
 
     public void colisionaBombermanConEnemigo() {
@@ -159,6 +179,23 @@ public class Tablero extends Throwable {
     /*
         poderes
      */
+    private void moverCursorNcasilleros(Pair coordenada, int distancia) {
+        cursorCoord = coordenada;
+        for(int n = 0; n < distancia; n++){
+            //TODO: deberia pasar un sentido al movimiento?
+            cursorCoord = Derecha.mover(this.cursorCoord);
+        }
+    }
+
+    public void tirarBombaANCasillerosYExplotarAMTicks(int distancia, int ticks) {
+        moverCursorNcasilleros(this.playerCoord, distancia);
+
+        celdas[this.cursorCoord.getA()][this.cursorCoord.getB()] = new CeldaConBomba(cursorCoord);
+        this.celdaConBomba = celdas[this.cursorCoord.getA()][this.cursorCoord.getB()];
+        //TODO: deberia hacer un sleep? (ticks)
+        this.explotarBomba();
+    }
+
     public void agregarPoderaBomberman() {
         this.bomberman.agregarPoderLanzarBombas();
     }
@@ -172,4 +209,5 @@ public class Tablero extends Throwable {
         this.bomberman.agregarPoderSaltarParedes();
         this.bomberman.agregarPoderLanzarVariasBombasAlMismoTiempo();
     }
+
 }

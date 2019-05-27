@@ -45,6 +45,7 @@ Feature: Bomberman Feature
 
 #casos de enemigos y poderes
 
+  #Bagulaa
   Scenario: bomberman suelta una bomba y esta alcanza a bagulaa
     Given un bomberman que suelta una bomba en la posicion actual
     And bagulaa al norte de la posicion del bomberman
@@ -53,12 +54,14 @@ Feature: Bomberman Feature
     Then la bomba mato al enemigo
     And bagulaa suelta un poder
 
-# TODO: esto deberia estar en el test de arriba
-#  Scenario: bomberman recoge el poder tirado por bagula
-#    Given un bomberman que va a recoger el poder tirado por bagulaa
-#    When agarra el poder
-#    Then bomberman puede lanzar la bomba recorriendo "n" casilleros y la detona luego de "m" ticks
+  Scenario: bomberman suelta una bomba y esta alcanza a bagulaa, luego lanza la bomba con el poder obtenido
+    Given un bomberman con poder lanza bombas
+    And bagulaa a 7 casilleros al este
+    Then bomberman lanza la bomba recorriendo 5 casilleros y la detona luego de 3 ticks
+    And bomberman se mueve 7 casilleros al este
+    And la bomba mato al enemigo
 
+  #Proto Max Jr
   Scenario: bomberman suelta una bomba y esta alcanza a Proto max jr
     Given un bomberman que suelta una bomba en la posicion actual
     And proto max jr al sur de la posicion del bomberman
@@ -67,12 +70,13 @@ Feature: Bomberman Feature
     Then la bomba mato al enemigo
     And proto max jr suelta un poder
 
-# TODO: esto deberia estar en el test de arriba
-#  Scenario: bomberman recoge el poder tirado por Proto max jr
-#    Given un bomberman que va a recoger el poder tirado por Proto max jr
-#    When agarra el poder
-#    Then bomberman puede saltar cualquier pared
+  Scenario: bomberman suelta una bomba y esta alcanza a Proto max jr, luego se mueve a traves del tablero con el poder obtenido
+    Given un bomberman con poder saltar paredes
+    And una pared de acero al este de la posicion de bomberman
+    And bomberman se mueve 2 casilleros al este
+    Then bomberman cambio su coordenada al este
 
+  #Proto Max Units
   Scenario: bomberman suelta una bomba y esta alcanza a Proto max units
     Given un bomberman que suelta una bomba en la posicion actual
     And proto max units al sur de la posicion del bomberman
@@ -80,10 +84,10 @@ Feature: Bomberman Feature
     And bomberman se mueve al sur
     Then la bomba mato al enemigo
     And proto max units suelta un poder
-
-# TODO: esto deberia estar en el test de arriba
-#  Scenario: bomberman recoge el poder tirado por Proto max units
-#    Given un bomberman que va a recoger el poder tirado por Proto max units
-#    When agarra el poder
-#    Then bomberman puede lanzar varias bombas
-#    Then bomberman puede saltar paredes
+    
+#  Scenario: bomberman suelta una bomba y esta alcanza a Proto max units, luego tiene 2 poderes
+#    Given un bomberman con dos poderes
+#    And una pared de acero al este de la posicion de bomberman
+#    And bomberman se mueve 2 casilleros al este
+#    Then bomberman cambio su coordenada al este
+#    And bomberman lanza 4 bombas a la vez en todos los sentidos

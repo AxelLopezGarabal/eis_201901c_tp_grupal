@@ -1,4 +1,8 @@
-package gradle.cucumber;
+package gradle.cucumber.celdas.celdasConContenido;
+
+import gradle.cucumber.Pair;
+import gradle.cucumber.Tablero;
+import gradle.cucumber.celdas.Celda;
 
 public class CeldaConParedDeAcero extends Celda {
     public CeldaConParedDeAcero(Pair coordenada) {
@@ -6,7 +10,7 @@ public class CeldaConParedDeAcero extends Celda {
     }
 
     public void colocarBomberman(Tablero tablero, Pair coordenada) {
-        tablero.setPlayerCoord(tablero.playerCoord());
+        tablero.moverBombermanEnTablero(coordenada);
     }
 
     public void explotar(Tablero tablero) {
