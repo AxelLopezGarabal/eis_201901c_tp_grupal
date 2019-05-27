@@ -19,6 +19,14 @@ public class Bomberman {
         return this.estaVivo;
     }
 
+    public void moverseEnTablero(Tablero tablero, Pair coordenada) {
+        if (this.tienePoderSaltarParedes()) {
+            tablero.setPlayerCoord(coordenada);
+        } else {
+            tablero.setPlayerCoord(tablero.playerCoord());
+        }
+    }
+
     public boolean tienePoderLanzarBombas() {
         return this.tienePoderLanzarBombas;
     }
@@ -35,6 +43,7 @@ public class Bomberman {
     public void agregarPoderSaltarParedes() {
         this.tienePoderSaltarParedes = true;
     }
+
 
     public boolean tienePoderLanzarVariasBombasAlMismoTiempo() {
         return this.tienePoderLanzarVariasBombasAlMismoTiempo;

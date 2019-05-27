@@ -10,7 +10,7 @@ public class CeldaConParedDeAcero extends Celda {
     }
 
     public void colocarBomberman(Tablero tablero, Pair coordenada) {
-        tablero.setPlayerCoord(tablero.playerCoord());
+        tablero.moverBombermanEnTablero(coordenada);
     }
 
     public void explotar(Tablero tablero) {

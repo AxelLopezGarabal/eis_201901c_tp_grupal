@@ -74,6 +74,10 @@ public class Tablero extends Throwable {
         this.playerCoord = coordenada;
     }
 
+    public void moverBombermanEnTablero(Pair coordenada) {
+        bomberman.moverseEnTablero(this, coordenada);
+    }
+
     public void colisionaBombermanConEnemigo() {
         this.bomberman.morir();
     }
@@ -175,7 +179,7 @@ public class Tablero extends Throwable {
     /*
         poderes
      */
-    public void moverCursorNcasilleros(Pair coordenada, int distancia) {
+    private void moverCursorNcasilleros(Pair coordenada, int distancia) {
         cursorCoord = coordenada;
         for(int n = 0; n < distancia; n++){
             //TODO: deberia pasar un sentido al movimiento?

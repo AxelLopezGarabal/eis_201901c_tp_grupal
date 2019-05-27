@@ -69,7 +69,7 @@ public class BombermanStepdefs {
         tablero.explotarBomba();
     }
 
-    @Then("^bomberman cambio su coordenada")
+    @Then("^bomberman cambio su coordenada$")
     public void bomberman_cambio_su_coordenada() {
         assertEquals(0, tablero.playerCoord().getA());
         assertEquals(1, tablero.playerCoord().getB());
@@ -168,6 +168,17 @@ public class BombermanStepdefs {
     public void proto_max_units_suelta_un_poder() {
         assertTrue(this.bomberman.tienePoderSaltarParedes());
         assertTrue(this.bomberman.tienePoderLanzarVariasBombasAlMismoTiempo());
+    }
+
+    @Given("^un bomberman con poder saltar paredes$")
+    public void un_bomberman_con_poder_saltar_paredes() {
+        bomberman.agregarPoderSaltarParedes();
+    }
+
+    @Then("^bomberman cambio su coordenada al este$")
+    public void bomberman_cambio_su_coordenada_al_este() {
+        assertEquals(3, tablero.playerCoord().getA());
+        assertEquals(1, tablero.playerCoord().getB());
     }
 
 }
